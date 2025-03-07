@@ -7,6 +7,7 @@ from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import pickle
 import time
+st.set_page_config(page_title="Movie Sentiment Analyzer", page_icon="🍿", layout="centered")
 nltk.download('stopwords')
 nltk.download('wordnet')
 lemmatizer = WordNetLemmatizer()
@@ -31,7 +32,6 @@ def predict_sentiment(user_input):
     prediction = model.predict(padded_sequence)
     sentiment = "🔥 Positive Vibes Only!" if prediction >= 0.5 else "💀 Major Red Flag!"
     return sentiment, prediction[0][0]
-st.set_page_config(page_title="Movie Sentiment Analyzer", page_icon="🍿", layout="centered")
 st.markdown(
     """
     <style>
